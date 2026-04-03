@@ -21,7 +21,7 @@ const Header = () => {
           
           {/* 🌟 Increased height to h-14 (you can change it to h-16 if you want it even bigger) */}
           <img 
-            src="/src/dhsa_logo.jpeg" 
+            src="/dhsa_logo.jpeg" 
             alt="DHSA Logo" 
             className="h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
           />
