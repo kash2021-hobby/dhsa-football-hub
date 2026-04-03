@@ -15,7 +15,7 @@ const pageVariants = {
 };
 
 const heroImages = [
-  "/src/hero.png",
+  "/hero.png",
   "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=2000",
   "https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=2000",
 ];
