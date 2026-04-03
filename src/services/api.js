@@ -1,6 +1,6 @@
 // src/services/api.js
 
-const API_URL = "http://localhost:5000"; // Point this to your Express backend
+const API_URL = "https://backend.dhsa.co.in"; // Point this to your Express backend
 
 export const fetchTournaments = async () => {
   try {
