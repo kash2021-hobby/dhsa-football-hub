@@ -53,7 +53,7 @@ export default function MatchDetails() {
     // 2. Poll every 2 seconds (2000ms) for instant score/event updates
     pollInterval = setInterval(() => {
       loadMatchData();
-    }, 0);
+    }, 2000);
 
     // 3. Simulate the clock ticking up every 1 minute (60000ms) while the page is open
     minuteInterval = setInterval(() => {
@@ -73,12 +73,13 @@ export default function MatchDetails() {
   return (
     <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit" className="bg-slate-50 min-h-screen pb-20">
       
-      {/* Header / Scoreboard Banner */}
+      {/* Header / Scoreboard Banner - White Theme */}
       <div className="bg-white pt-10 pb-16 border-b border-slate-200 shadow-inner shadow-black/5 relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518605368461-1ee125225f46?auto=format&fit=crop&q=80&w=2000')] opacity-5 object-cover mix-blend-overlay" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <Link to="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-600 transition-colors mb-12 font-medium text-sm px-4 py-2 rounded-full border border-slate-200 bg-white shadow shadow-slate-200/50">
+          {/* 🌟 Yellow Hover State */}
+          <Link to="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-yellow-600 transition-colors mb-12 font-medium text-sm px-4 py-2 rounded-full border border-slate-200 bg-white shadow shadow-slate-200/50">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
 
@@ -104,21 +105,23 @@ export default function MatchDetails() {
                          </div>
                          <div className="flex items-end justify-between gap-10">
                              <h2 className="text-4xl font-black tracking-tighter drop-shadow-md text-slate-300">Live <span className="text-white">Updates</span></h2>
-                             <Activity className="w-12 h-12 text-emerald-400 animate-pulse shrink-0"/>
+                             {/* 🌟 Yellow Pulse Activity Icon */}
+                             <Activity className="w-12 h-12 text-yellow-400 animate-pulse shrink-0"/>
                          </div>
                     </div>
                 ) : (
-                    <div className="bg-emerald-600 text-white rounded-3xl p-10 border border-emerald-700 shadow-2xl shadow-black/20 flex flex-col justify-between overflow-hidden relative">
-                        <div className="absolute -top-10 -right-10 opacity-10 group"><MapPin className="w-60 h-60 text-white"/></div>
+                    /* 🌟 Yellow Theme for Stadium Entry Banner */
+                    <div className="bg-yellow-400 text-slate-900 rounded-3xl p-10 border border-yellow-500 shadow-2xl shadow-yellow-500/20 flex flex-col justify-between overflow-hidden relative">
+                        <div className="absolute -top-10 -right-10 opacity-20 group"><MapPin className="w-60 h-60 text-yellow-600"/></div>
                         <div className="relative z-10">
-                            <div className="text-emerald-100 font-bold flex items-center gap-2 bg-emerald-700/50 px-4 py-1.5 rounded-full border border-emerald-700/20 shadow-xl mb-4 text-sm w-fit uppercase tracking-widest">
+                            <div className="text-slate-900 font-bold flex items-center gap-2 bg-yellow-300/50 px-4 py-1.5 rounded-full border border-yellow-300 shadow-sm mb-4 text-sm w-fit uppercase tracking-widest">
                               <Shield className="w-4 h-4"/> Stadium Entry
                             </div>
-                            <p className="text-emerald-100 text-sm font-semibold mb-8 max-w-sm">Entry tickets are now available for purchase at the DHSA club counter for all upcoming tournament matches.</p>
+                            <p className="text-slate-800 text-sm font-semibold mb-8 max-w-sm">Entry tickets are now available for purchase at the DHSA club counter for all upcoming tournament matches.</p>
                         </div>
                         <div className="flex items-end justify-between gap-10 relative z-10">
-                            <h2 className="text-4xl font-black tracking-tighter drop-shadow-md text-emerald-100">Attend The <span className="text-white">Match</span></h2>
-                            <ChevronRight className="w-12 h-12 text-emerald-800 shrink-0"/>
+                            <h2 className="text-4xl font-black tracking-tighter drop-shadow-sm text-slate-800">Attend The <span className="text-slate-900">Match</span></h2>
+                            <ChevronRight className="w-12 h-12 text-yellow-600 shrink-0"/>
                         </div>
                     </div>
                 )}
@@ -131,24 +134,26 @@ export default function MatchDetails() {
         {/* Left Column: Match Info Grid */}
         <div className="md:col-span-1 space-y-5">
           <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl shadow-slate-200/40">
-            <h3 className="text-xl font-black text-slate-900 mb-8 flex items-center gap-2 drop-shadow"><Shield className="w-5 h-5 text-emerald-500"/> Match Venue Info</h3>
+            {/* 🌟 Yellow Icon */}
+            <h3 className="text-xl font-black text-slate-900 mb-8 flex items-center gap-2 drop-shadow"><Shield className="w-5 h-5 text-yellow-500"/> Match Venue Info</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 shadow-inner"><MapPin className="w-5 h-5 shrink-0" /></div>
+                  {/* 🌟 Yellow Info Backgrounds */}
+                  <div className="w-11 h-11 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center border border-yellow-100 shadow-inner"><MapPin className="w-5 h-5 shrink-0" /></div>
                 <div>
                   <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Stadium</p>
                   <p className="font-semibold text-slate-700">{match.venue || "TBD"}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 shadow-inner"><Clock className="w-5 h-5 shrink-0" /></div>
+                  <div className="w-11 h-11 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center border border-yellow-100 shadow-inner"><Clock className="w-5 h-5 shrink-0" /></div>
                 <div>
                   <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Date & Kickoff</p>
                   <p className="font-semibold text-slate-700">{match.match_date || "TBD"} • {match.match_time || "TBD"}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 shadow-inner"><UserCheck className="w-5 h-5 shrink-0" /></div>
+                  <div className="w-11 h-11 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center border border-yellow-100 shadow-inner"><UserCheck className="w-5 h-5 shrink-0" /></div>
                 <div>
                   <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Official Referee</p>
                   <p className="font-semibold text-slate-700">{match.referee_name || "TBD"}</p>
@@ -171,7 +176,7 @@ export default function MatchDetails() {
               <div className="relative border-l-2 border-slate-100 ml-4 space-y-10 pb-4">
                 {match.match_events.sort((a,b) => b.minute - a.minute).map((event, idx) => {
                   
-                  // 🌟 Dynamically figure out the team name based on the ID saved by the referee
+                  // Dynamically figure out the team name based on the ID saved by the referee
                   const teamName = event.teamId === match.team1_id ? match.team1_name : match.team2_name;
 
                   return (
@@ -179,8 +184,9 @@ export default function MatchDetails() {
                       initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.05 }}
                       key={event.id || idx} className="relative pl-10"
                     >
+                      {/* Note: Kept semantic colors here (Goal=Green, Sub=Blue) so users don't confuse Goal with Yellow Card */}
                       <div className={`absolute -left-3 top-1.5 w-6 h-6 rounded-full border-4 border-white shadow ${
-                        event.type === 'Goal' ? 'bg-emerald-500' : event.type === 'Yellow Card' ? 'bg-amber-400' : event.type === 'Substitution' ? 'bg-blue-500' : 'bg-red-500'
+                        event.type === 'Goal' ? 'bg-emerald-500' : event.type === 'Yellow Card' ? 'bg-yellow-400' : event.type === 'Substitution' ? 'bg-blue-500' : 'bg-red-500'
                       }`}></div>
                       
                       <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 flex justify-between items-center shadow shadow-black/5">
@@ -198,7 +204,7 @@ export default function MatchDetails() {
                         <div className="text-right shrink-0">
                           <span className="font-black text-slate-900 text-3xl tracking-tighter drop-shadow">{event.minute} MIN'</span>
                           <p className={`text-xs font-bold uppercase mt-1 tracking-widest ${
-                             event.type === 'Goal' ? 'text-emerald-600' : event.type === 'Yellow Card' ? 'text-amber-600' : event.type === 'Substitution' ? 'text-blue-600' : 'text-red-600'
+                             event.type === 'Goal' ? 'text-emerald-600' : event.type === 'Yellow Card' ? 'text-yellow-600' : event.type === 'Substitution' ? 'text-blue-600' : 'text-red-600'
                           }`}>{event.type}</p>
                         </div>
                       </div>
