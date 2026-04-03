@@ -2,13 +2,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Trophy, Calendar, Home as HomeIcon, Globe, MessageSquare, Mail, Menu, X, Info, LogIn } from 'lucide-react';
+import { Trophy, Calendar, Home as HomeIcon, Globe, MessageSquare, Mail, Menu, X, Info, LogIn, Activity } from 'lucide-react';
 
 import Home from './pages/Home.jsx';
 import Tournaments from './pages/Tournaments.jsx';
 import MatchDetails from './pages/MatchDetails.jsx';
 import About from './pages/About.jsx';
+import LiveMatches from './pages/LiveMatches.jsx'; // 🌟 NEW IMPORT
 import dhsaLogo from './dhsa_logo.jpeg';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -18,24 +20,25 @@ const Header = () => {
         
         {/* Logo updated to Image */}
         <Link to="/" className="flex items-center gap-2 group">
-          
-          {/* 🌟 Increased height to h-14 (you can change it to h-16 if you want it even bigger) */}
           <img 
             src={dhsaLogo}
             alt="DHSA Logo" 
             className="h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
           />
-
-          {/* If your logo image already has the word "DHSA" in it, you can delete this span below! */}
           <span className="text-2xl font-black tracking-tight text-slate-900">
-            DHSA<span className="text-yellow-500"></span>
+            DHSA<span className="text-yellow-500">.</span>
           </span>
-          
         </Link>
 
         {/* Desktop Nav - Yellow Hover States */}
         <nav className="hidden md:flex items-center gap-3 font-semibold">
           <Link to="/" className="px-5 py-2.5 rounded-full hover:bg-yellow-50 hover:text-yellow-700 transition-colors flex items-center gap-2 text-slate-700"><HomeIcon className="w-4 h-4" /> Home</Link>
+          
+          {/* 🌟 NEW LIVE LINK */}
+          <Link to="/live" className="px-5 py-2.5 rounded-full hover:bg-red-50 hover:text-red-600 transition-colors flex items-center gap-2 text-slate-700">
+             <Activity className="w-4 h-4 text-red-500 animate-pulse" /> Live
+          </Link>
+
           <Link to="/tournaments" className="px-5 py-2.5 rounded-full hover:bg-yellow-50 hover:text-yellow-700 transition-colors flex items-center gap-2 text-slate-700"><Calendar className="w-4 h-4" /> Tournaments</Link>
           <Link to="/about" className="px-5 py-2.5 rounded-full hover:bg-yellow-50 hover:text-yellow-700 transition-colors flex items-center gap-2 text-slate-700"><Info className="w-4 h-4" /> About Us</Link>
           
@@ -65,6 +68,12 @@ const Header = () => {
           >
             <div className="flex flex-col px-4 py-4 gap-2">
               <Link to="/" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl hover:bg-yellow-50 hover:text-yellow-700 text-slate-700 flex items-center gap-3 font-semibold transition-colors"><HomeIcon className="w-5 h-5" /> Home</Link>
+              
+              {/* 🌟 NEW MOBILE LIVE LINK */}
+              <Link to="/live" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl hover:bg-red-50 hover:text-red-600 text-slate-700 flex items-center gap-3 font-semibold transition-colors">
+                <Activity className="w-5 h-5 text-red-500 animate-pulse" /> Live Matches
+              </Link>
+
               <Link to="/tournaments" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl hover:bg-yellow-50 hover:text-yellow-700 text-slate-700 transition-colors flex items-center gap-3 font-semibold"><Calendar className="w-5 h-5" /> Tournaments</Link>
               <Link to="/about" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl hover:bg-yellow-50 hover:text-yellow-700 text-slate-700 transition-colors flex items-center gap-3 font-semibold"><Info className="w-5 h-5" /> About Us</Link>
               <div className="h-px w-full bg-slate-100 my-2"></div>
@@ -121,6 +130,7 @@ const AnimatedRoutes = () => {
         <Route path="/tournaments" element={<Tournaments />} />
         <Route path="/match/:id" element={<MatchDetails />} />
         <Route path="/about" element={<About />} />
+        <Route path="/live" element={<LiveMatches />} /> {/* 🌟 NEW ROUTE ADDED */}
       </Routes>
     </AnimatePresence>
   );
