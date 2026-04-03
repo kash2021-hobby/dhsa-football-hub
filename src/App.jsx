@@ -8,7 +8,7 @@ import Home from './pages/Home.jsx';
 import Tournaments from './pages/Tournaments.jsx';
 import MatchDetails from './pages/MatchDetails.jsx';
 import About from './pages/About.jsx';
-
+import logo from '../dhsa_logo.jpeg';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,7 +21,7 @@ const Header = () => {
           
           {/* 🌟 Increased height to h-14 (you can change it to h-16 if you want it even bigger) */}
           <img 
-            src="/dhsa_logo.jpeg" 
+            src=logo
             alt="DHSA Logo" 
             className="h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
           />
