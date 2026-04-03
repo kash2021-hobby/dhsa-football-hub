@@ -7,6 +7,7 @@ import { CalendarDays, ChevronRight, ChevronLeft, Activity, Search, Users, BookO
 import { fetchMatches } from '../services/api';
 import { UnifiedMatchCard, SectionHeader } from '../components/UnifiedMatchCard.jsx';
 import { AboutUsContent, CommitteeContent } from './About.jsx';
+import heroImg from '../hero.png';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -15,7 +16,7 @@ const pageVariants = {
 };
 
 const heroImages = [
-  "/hero.png",
+  heroImg,
   "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=2000",
   "https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=2000",
 ];
