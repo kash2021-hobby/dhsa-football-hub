@@ -68,7 +68,7 @@ const Header = () => {
               <Link to="/tournaments" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl hover:bg-yellow-50 hover:text-yellow-700 text-slate-700 transition-colors flex items-center gap-3 font-semibold"><Calendar className="w-5 h-5" /> Tournaments</Link>
               <Link to="/about" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl hover:bg-yellow-50 hover:text-yellow-700 text-slate-700 transition-colors flex items-center gap-3 font-semibold"><Info className="w-5 h-5" /> About Us</Link>
               <div className="h-px w-full bg-slate-100 my-2"></div>
-              <a href="/login" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl bg-yellow-400 text-slate-900 flex items-center justify-center gap-3 font-bold shadow-md"><LogIn className="w-5 h-5" /> Login / Portal</a>
+              <a href="https://version2.dhsa.co.in/login" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 rounded-xl bg-yellow-400 text-slate-900 flex items-center justify-center gap-3 font-bold shadow-md"><LogIn className="w-5 h-5" /> Login / Portal</a>
             </div>
           </motion.nav>
         )}
