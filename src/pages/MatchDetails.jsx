@@ -78,7 +78,6 @@ export default function MatchDetails() {
          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518605368461-1ee125225f46?auto=format&fit=crop&q=80&w=2000')] opacity-5 object-cover mix-blend-overlay" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* 🌟 Yellow Hover State */}
           <Link to="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-yellow-600 transition-colors mb-12 font-medium text-sm px-4 py-2 rounded-full border border-slate-200 bg-white shadow shadow-slate-200/50">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
@@ -105,12 +104,10 @@ export default function MatchDetails() {
                          </div>
                          <div className="flex items-end justify-between gap-10">
                              <h2 className="text-4xl font-black tracking-tighter drop-shadow-md text-slate-300">Live <span className="text-white">Updates</span></h2>
-                             {/* 🌟 Yellow Pulse Activity Icon */}
                              <Activity className="w-12 h-12 text-yellow-400 animate-pulse shrink-0"/>
                          </div>
                     </div>
                 ) : (
-                    /* 🌟 Yellow Theme for Stadium Entry Banner */
                     <div className="bg-yellow-400 text-slate-900 rounded-3xl p-10 border border-yellow-500 shadow-2xl shadow-yellow-500/20 flex flex-col justify-between overflow-hidden relative">
                         <div className="absolute -top-10 -right-10 opacity-20 group"><MapPin className="w-60 h-60 text-yellow-600"/></div>
                         <div className="relative z-10">
@@ -134,11 +131,9 @@ export default function MatchDetails() {
         {/* Left Column: Match Info Grid */}
         <div className="md:col-span-1 space-y-5">
           <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl shadow-slate-200/40">
-            {/* 🌟 Yellow Icon */}
             <h3 className="text-xl font-black text-slate-900 mb-8 flex items-center gap-2 drop-shadow"><Shield className="w-5 h-5 text-yellow-500"/> Match Venue Info</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                  {/* 🌟 Yellow Info Backgrounds */}
                   <div className="w-11 h-11 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center border border-yellow-100 shadow-inner"><MapPin className="w-5 h-5 shrink-0" /></div>
                 <div>
                   <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Stadium</p>
@@ -184,9 +179,14 @@ export default function MatchDetails() {
                       initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.05 }}
                       key={event.id || idx} className="relative pl-10"
                     >
-                      {/* Note: Kept semantic colors here (Goal=Green, Sub=Blue) so users don't confuse Goal with Yellow Card */}
+                      {/* 🌟 UPDATED: Match the new Event types from the Referee Dashboard */}
                       <div className={`absolute -left-3 top-1.5 w-6 h-6 rounded-full border-4 border-white shadow ${
-                        event.type === 'Goal' ? 'bg-emerald-500' : event.type === 'Yellow Card' ? 'bg-yellow-400' : event.type === 'Substitution' ? 'bg-blue-500' : 'bg-red-500'
+                        event.type === 'Goal' ? 'bg-emerald-500' : 
+                        event.type === 'Penalty Goal' ? 'bg-orange-500' :
+                        event.type === 'Yellow Card' ? 'bg-yellow-400' : 
+                        event.type === 'Substitution' ? 'bg-blue-500' : 
+                        event.type === 'Red Card' ? 'bg-red-500' :
+                        'bg-slate-400' // Offside
                       }`}></div>
                       
                       <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 flex justify-between items-center shadow shadow-black/5">
@@ -203,9 +203,17 @@ export default function MatchDetails() {
                         </div>
                         <div className="text-right shrink-0">
                           <span className="font-black text-slate-900 text-3xl tracking-tighter drop-shadow">{event.minute} MIN'</span>
+                          
+                          {/* 🌟 UPDATED: Match the text colors to the event dots */}
                           <p className={`text-xs font-bold uppercase mt-1 tracking-widest ${
-                             event.type === 'Goal' ? 'text-emerald-600' : event.type === 'Yellow Card' ? 'text-yellow-600' : event.type === 'Substitution' ? 'text-blue-600' : 'text-red-600'
+                             event.type === 'Goal' ? 'text-emerald-600' : 
+                             event.type === 'Penalty Goal' ? 'text-orange-600' :
+                             event.type === 'Yellow Card' ? 'text-yellow-600' : 
+                             event.type === 'Substitution' ? 'text-blue-600' : 
+                             event.type === 'Red Card' ? 'text-red-600' :
+                             'text-slate-500' // Offside
                           }`}>{event.type}</p>
+                          
                         </div>
                       </div>
                     </motion.div>
